@@ -1,0 +1,20 @@
+plugin:
+    name: 'wollson.projectmanager::lang.plugin.name'
+    description: 'wollson.projectmanager::lang.plugin.description'
+    author: Wollson
+    icon: oc-icon-adjust
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Projects
+        url: wollson/projectmanager/project
+        icon: icon-suitcase
+        sideMenu:
+            side-menu-item2:
+                label: Projects
+                url: wollson/projectmanager/project
+                icon: icon-suitcase
+            side-menu-item:
+                label: Services
+                url: /wollson/projectmanager/scopes/
+                icon: icon-sitemap

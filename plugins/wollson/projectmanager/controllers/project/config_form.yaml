@@ -1,0 +1,11 @@
+name: Project
+modelClass: Wollson\ProjectManager\Models\Project
+form: $/wollson/projectmanager/models/project/fields.yaml
+defaultRedirect: wollson/projectmanager/project
+create:
+    redirect: 'wollson/projectmanager/project/update/:id'
+    redirectClose: wollson/projectmanager/project
+update:
+    redirect: wollson/projectmanager/project
+    redirectClose: wollson/projectmanager/project
+preview: {  }

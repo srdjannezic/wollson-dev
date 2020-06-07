@@ -1,0 +1,5 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table wollson_clientsmanager_'
+    - builder_table_create_wollson_clientsmanager_.php

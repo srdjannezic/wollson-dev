@@ -1,0 +1,11 @@
+plugin:
+    name: 'wollson.clientsmanager::lang.plugin.name'
+    description: 'wollson.clientsmanager::lang.plugin.description'
+    author: Wollson
+    icon: oc-icon-chain
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Clients
+        url: /wollson/clientsmanager/clients
+        icon: icon-chain

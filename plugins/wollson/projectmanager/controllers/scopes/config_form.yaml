@@ -1,0 +1,11 @@
+name: Scopes
+modelClass: Wollson\ProjectManager\Models\Scope
+form: $/wollson/projectmanager/models/scope/fields.yaml
+defaultRedirect: wollson/projectmanager/scopes
+create:
+    redirect: 'wollson/projectmanager/scopes/update/:id'
+    redirectClose: wollson/projectmanager/scopes
+update:
+    redirect: wollson/projectmanager/scopes
+    redirectClose: wollson/projectmanager/scopes
+preview: {  }

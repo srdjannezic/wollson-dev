@@ -1,0 +1,42 @@
+[menu]
+start = "id-1"
+activeNode = 0
+listItemClasses = "item"
+primaryClasses = "nav nav-pills"
+secondaryClasses = "dropdown-menu"
+numberOfLevels = 2
+==
+<div class="header__logo">
+	<a href="/wollson">
+		<img src="{{ url('themes/wollson/assets/images/wollson_logo.svg') }}" alt="wollson logo">
+	</a>
+</div>
+<div id="menu-toggle">
+	<div id="hamburger">
+		<span></span>
+		<span></span>
+	</div>
+	<div id="cross">
+		<span></span>
+		<span></span>
+	</div>
+</div>
+<div class="menu">
+	<div class="overlay"></div>
+	<div class="menu-wrapper">
+		{% component 'menu' %}
+		<div class="menu__bottom">
+			<div class="menu-note">
+				<h4>Well-designed adaptable processes and innovative thinking.</h4>
+			</div>
+			<ul class="social">
+				<li><a href="#dummy">Instagram</a></li>
+				<li><a href="#dummy">Facebook</a></li>
+				<li><a href="#dummy">Linkedin</a></li>
+			</ul>
+		</div>
+		<div class="menu-decor-line">
+			<a href="#dummy" class="menu-follow"><span>Follow us</span></a>
+		</div>
+	</div>
+</div>

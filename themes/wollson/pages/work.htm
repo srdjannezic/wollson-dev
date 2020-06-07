@@ -1,0 +1,26 @@
+title = "Work"
+url = "/work"
+layout = "default"
+description = "Lorem ipsum copy about<br/>
+the projects in general,<br/>
+a couple of nice sentences.<br/>
+Four lines required."
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[projects]
+FeaturedFilter = 1
+pageNumber = "{{ :page }}"
+postsPerPage = 3
+==
+<section id="work-title" class="hero-intro" data-aos="fade-up" data-aos-duration="1000">
+    <h1>{{ this.page.description|raw }}</h1>
+    <div class="scroll-down">
+    	<span class="decor-line"></span>
+    	<i class="icon-down-arrow"></i>
+    </div>
+</section>
+<section id="work-projects" class="first">
+    {% component 'projects' %}
+</section>

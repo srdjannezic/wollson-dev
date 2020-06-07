@@ -1,0 +1,4 @@
+title: Project
+modelClass: Wollson\ProjectManager\Models\Project
+toolbar:
+    buttons: reorder_toolbar

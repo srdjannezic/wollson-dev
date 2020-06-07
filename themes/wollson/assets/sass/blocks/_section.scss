@@ -1,0 +1,725 @@
+//-------------------------
+//----------- SECTION
+//-------------------------
+
+.hero-intro {
+	position: relative;
+	padding: 7rem 0 17rem;
+	height: auto;
+	overflow: hidden;
+	@include breakpoint(mobile) {
+		padding: 10rem 0 28rem;
+	}
+	&:after {
+		display: block;
+		position: absolute;
+		top: 2rem;
+		right: 0;
+		content: "";
+		width: 57%;
+		height: 100%;
+		background-color: $c-mainGrey;
+		z-index: 1;
+		@include breakpoint(mobile) {
+			top: 0;
+			width: 64%;
+		}
+	}
+	
+	h1,
+	h2,
+	h5 {
+		position: relative;
+		width: 57%;
+		margin: 0 auto;
+		margin-left: 22%;
+		font-family: $styledFont-bold;
+		font-size: 56px;
+		line-height: 1.2;
+		z-index: 4;
+		@include breakpoint(desktop-fit) {
+			font-size: 46px;
+		}
+		@include breakpoint(tablet--landscape) {
+			margin-left: 15%;
+			width: 62%;
+		}
+		@include breakpoint(tablet) {
+			width: 68%;
+		}
+		@include breakpoint(mobile) {
+			width: 75%;
+			font-size: 5.5rem;
+		}
+		br {
+			display: none;
+		}
+	}
+	h2 {
+		width: auto;
+	}
+	h5 {
+		font-family: $baseFont-med;
+		font-size: 20px;
+		@include breakpoint(desktop-fit) {
+			font-size: 18px;
+		}
+		@include breakpoint(tablet) {
+			font-size: 3rem;
+		}
+	}
+	.intro-left,
+	.intro-right {
+		float: left;
+		width: 50%;
+		@include breakpoint(tablet--landscape) {
+			width: 56%;
+		}
+		@include breakpoint(tablet) {
+			width: 80%;
+		}
+	}
+	.intro-left {
+		margin-left: 22%;
+		@include breakpoint(tablet--landscape) {
+			margin-left: 15%;
+		}
+		h5 {
+			margin-bottom: 4rem;
+			margin-left: 0;
+		}
+		h2 {
+			margin-left: 0;
+			padding-right: 6rem;
+			@include breakpoint(tablet--landscape) {
+				padding-right: 6rem;
+			}
+		}
+	}
+	.intro-right {
+		width: 20%;
+		@include breakpoint(tablet) {
+			width: 70%;
+			margin-left: 15%;
+			margin-top: 4.5rem;
+		}
+		h5 {
+			margin-left: 0;
+			margin-bottom: 3rem;
+			width: auto;
+		}
+	}
+	ul {
+		position: relative;
+		z-index: 4;
+		li {
+			margin-bottom: 1rem;
+			font-size: 20px;
+			line-height: 1.2;
+			@include breakpoint(desktop-fit) {
+				font-size: 18px;
+			}
+			@include breakpoint(tablet) {
+				font-size: 3rem;
+				margin-bottom: 2rem;
+			}
+		}
+	}
+	.scroll-down {
+		position: absolute;
+		bottom: 40%;
+		right: 8rem;
+		z-index: 4;
+		width: 30px;
+		height: 60%;
+		@include breakpoint(tablet--landscape) {
+			right: 4rem;
+		}
+		@include breakpoint(mobile) {
+			left: 50%;
+			transform: translateX(-50%);
+			top: auto;
+			bottom: 8.4rem;
+			
+		}
+		.decor-line {
+			display: block;
+			@include absolute(center-horizontal);
+			width: 2px;
+			height: 60%;
+			top: 20%;
+			right: 9.6rem;
+			background-color: $c-black;
+			z-index: 4;
+			@include breakpoint(mobile) {
+				top: auto;
+				height: 5.3rem;
+				bottom: 10rem;
+			}
+		}
+		i {
+			width: 27px;
+			height: 27px;
+			border: 2px solid $c-black;
+			border-radius: 50%;
+			cursor: pointer;
+			@include absolute(center-horizontal);
+			top: 100%;
+			font-size: 11px;
+			@include breakpoint(mobile) {
+				top: auto;
+				bottom: 0;
+				width: 5rem;
+				height: 5rem;
+				font-size: 1.8rem;
+			}
+			&:before {
+				@include absolute(center);
+			}
+		}
+	}
+}
+
+.animated {
+	-webkit-animation-duration: 2s;
+	animation-duration: 2s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-timing-function: linear;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+}
+@-webkit-keyframes bounce {
+	0%, 100% {
+		-webkit-transform: translate(-50%, 0);
+	}
+	50% {
+		-webkit-transform: translate(-50%,-15px);
+	}
+}
+@keyframes bounce {
+	0%, 100% {
+		transform: translate(-50%, 0);
+	}
+	50% {
+		transform: translate(-50%, -15px);
+	}
+}
+.bounce {
+	-webkit-animation-name: bounce;
+	animation-name: bounce;
+}
+
+.title-wrapper {
+	position: relative;
+	z-index: 6;
+} 
+//-- Promo box
+
+.promotion {
+	@extend %clearfix;
+}
+
+.video-wrapper,
+.image-wrapper {
+	video,
+	img {
+		@include absolute(center);
+		width: 101%;
+		height: auto;
+	}
+}
+
+.promo-box {
+	position: relative;
+	float: left;
+	width: 49.85%;
+	margin: 0 0.3% 0.3% 0;
+    @include breakpoint(tablet--landscape) {
+    	width: 100%;
+    	margin-right: 0;
+    	margin-bottom: 1rem;
+    }
+	.video-wrapper,
+	.image-wrapper {
+		position: relative;
+		width: 100%;
+		height: 80rem;
+		overflow: hidden;
+		@include breakpoint(desktop-fit) {
+			height: 75rem;
+		}
+		@include breakpoint(tablet) {
+			height: 60rem;
+		}
+		&:after {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			content: "";
+			background: rgba(0,0,0,0.3);
+		}
+		video,
+		img {
+			@include breakpoint(tablet--landscape) {
+				@include absolute(center);
+				width: auto;
+				height: 140%;
+			}
+			@include breakpoint(mobile) {
+				height: 100%;
+			}
+		}
+	}
+	&:nth-child(2n+1) {
+		margin-right: 0;
+	}
+	&:first-child {
+		width: 100%;
+		float: none;
+	}
+}
+.promo-info {
+	position: absolute;
+	top: 8rem;
+	left: 8rem;
+	padding-right: 8rem;
+	@include breakpoint(tablet--landscape) {
+		@include absolute(center-vertical);
+		left: 4rem;
+		padding-right: 4rem;
+	}
+}
+.promo-title {
+	margin-bottom: 4.8rem;
+	font-family: $baseFont-med;
+	font-size: 20px;
+	line-height: 1.4;
+	color: $c-white;
+	@include breakpoint(desktop-fit) {
+		font-size: 18px;
+	}
+	@include breakpoint(tablet--landscape) {
+		margin-bottom: 4rem;
+		font-size: 3rem;
+	}
+}
+
+.promo-subtitle {
+	font-size: 40px;
+	line-height: 1.33;
+	color: $c-white;
+	@include breakpoint(desktop-fit) {
+		font-size: 32px;
+	}
+	@include breakpoint(tablet--landscape) {
+		font-size: 3.6rem;
+	}
+	strong {
+		font-family: $styledFont-bold;
+	}
+}
+
+
+//-- Home page - Motto message (at bottom)
+
+.motto {
+	padding: 12.5rem 0 12rem;
+	@include breakpoint(tablet--landscape) {
+		padding: 16rem 4rem;
+	}
+	.container {
+		@include breakpoint(tablet--landscape) {
+			width: 100%;
+			margin-left: 0;
+		}
+	}
+	p {
+		margin-bottom: 2.4rem;
+		font-size: 24px;
+		line-height: 1.7;
+		@include breakpoint(desktop-fit) {
+			font-size: 20px;
+		}
+		@include breakpoint(tablet--landscape) {
+			margin-bottom: 6rem;
+			font-size: 3rem;
+		}
+	}
+}
+
+//-- About Us
+
+.section-description {
+	width: 57%;
+	padding: 10rem 0 8.4rem;
+    margin: 0 auto 0 22%;
+    @include breakpoint(tablet--landscape) {
+    	width: 100%;
+    	padding: 10rem 4rem 8.4rem;
+    	margin-left: 0;
+    }
+    @include breakpoint(mobile) {
+    	padding-top: 8rem;
+    	padding-bottom: 13rem;
+    }
+	h3 {
+		margin-bottom: 4rem;
+		font-size: 36px;
+		line-height: 1.35;
+		@include breakpoint(desktop-fit) {
+			font-size: 28px;
+		}
+		@include breakpoint(mobile) {
+			margin-bottom: 6rem;
+			font-size: 3.6rem;
+		}
+	}
+	p {
+		font-size: 24px;
+		line-height: 1.6;
+		@include breakpoint(desktop-fit) {
+			font-size: 20px;
+		}
+		@include breakpoint(mobile) {
+			font-size: 3rem;
+		}
+		br {
+			display: none;
+		}
+	}
+}
+
+#about-title {
+	.scroll-down {
+		@include breakpoint(tablet--landscape) {
+			display: none;
+		}
+	}
+	&.hero-intro {
+		@include breakpoint(mobile) {
+			padding-bottom: 10rem;
+		}
+	}
+}
+
+.section-media {
+	@extend %clearfix;
+	@include breakpoint(mobile) {
+		padding: 0 4rem;
+	}
+	.left-img {
+		float: left;
+		width: 45%;
+		@include breakpoint(mobile) {
+			width: 100%;
+			margin-bottom: 3rem;
+		}
+		&:first-of-type {
+			margin-right: 16rem;
+		}
+		&:nth-of-type(2) {
+			width: 20%;
+		}
+	}
+	.right-img {
+		width: 20%;
+		@include breakpoint(tablet--landscape) {
+			width: 31%;
+		}
+		@include breakpoint(mobile) {
+			width: 100%;
+		}
+	}
+}
+
+.section-boxes,
+.section-content,
+.section-highlighted,
+.section-worked-with {
+
+	@extend %clearfix;
+	padding: 10rem 8rem 0rem;
+	@include breakpoint(tablet--landscape) {
+		padding: 10rem 4rem 0rem;
+	}
+	ul li {
+		float: left;
+		width: 33.33%;
+		padding-right: 9rem;
+		@include breakpoint(tablet--landscape) {
+			width: 100%;
+			margin-bottom: 4rem;
+		}
+		@include breakpoint(mobile) {
+			margin-bottom: 8rem;
+			padding-right: 0;
+		}
+	}
+	h4 {
+		margin-bottom: 4rem;
+		font-size: 20px;
+		font-weight: 600;
+		@include breakpoint(desktop-fit) {
+			font-size: 18px;
+		}
+		@include breakpoint(mobile) {
+			margin-bottom: 6rem;
+			font-size: 3rem;
+		}
+	}
+	h3 {
+		margin-bottom: 4.2rem;
+		font-size: 36px;
+		font-family: $styledFont-bold;
+		@include breakpoint(desktop-fit) {
+			font-size: 28px;
+		}
+		@include breakpoint(mobile) {
+			margin-bottom: 5.5rem;
+			font-size: 3.9rem;
+		}
+	}
+	p {
+		margin-bottom: 1.6rem;
+		font-size: 20px;
+		line-height: 1.8;
+		@include breakpoint(desktop-fit) {
+			font-size: 18px;
+		}
+		@include breakpoint(mobile) {
+			font-size: 3rem;
+		}
+	}
+	blockquote {
+		position: relative;
+		width: 50%;
+		margin: 0 auto;
+		padding: 5rem 0 9rem;
+		font-size: 24px;
+		@include breakpoint(desktop-fit) {
+			font-size: 20px;
+		}
+		@include breakpoint(tablet--landscape) {
+			width: 100%;
+			padding-left: 10rem;
+			padding-top: 10rem;
+		}
+		&:after {
+			display: block;
+			position: absolute;
+			top: 6rem;
+			left: -25rem;
+			content: "";
+			width: 19rem;
+			height: 2px;
+			background-color: $c-black;
+			@include breakpoint(tablet--landscape) {
+				left: 0;
+			}
+		}
+		p {
+			width: auto;
+			padding-right: 0;
+			font-size: 24px;
+			@include breakpoint(desktop-fit) {
+				font-size: 20px;
+			}
+			@include breakpoint(mobile) {
+				font-size: 3.6rem;
+			}
+		}
+	}
+}
+
+.section-content {
+	@include breakpoint(tablet--landscape) {
+		padding-top: 2rem;
+	}
+	p {
+		width: 62%;
+		@include breakpoint(tablet--landscape) {
+			width: 100%;
+		}
+	}
+}
+
+.section-highlighted {
+	position: relative;
+	padding: 10rem 8rem 17rem;
+	background-color: $c-mainGrey;
+	@include breakpoint(tablet--landscape) {
+		padding: 10rem 4rem 17rem;
+	}
+	@include breakpoint(mobile) {
+		padding: 10rem 4rem 12rem;
+	}
+	img {
+		margin-top: 7rem; 
+		float: left;
+		&:first-of-type {
+			margin-left: 8rem;
+			width: 39%!important;
+			@include breakpoint(tablet--landscape) {
+				margin-left: 0;
+			}
+			@include breakpoint(mobile) {
+				width: 100%!important;
+				margin-bottom: 3rem; 
+			}
+		}
+		&:last-child {
+			position: absolute;
+			right: 8rem;
+			width: 45%!important;
+			margin-left: 14rem;
+			@include breakpoint(mobile) {
+				position: static;
+				width: 100%!important;
+				margin-left: 0;
+				margin-top: 0;
+			}
+		}
+	}
+}
+
+//-- Our Clients
+
+.section-worked-with {
+	width: 72%;
+	padding: 20rem 8rem 16rem;
+	@include breakpoint(tablet--landscape) {
+		padding: 10rem 4rem 16rem;
+		width: 100%;
+	}
+	@include breakpoint(mobile) {
+		padding-bottom: 6rem;
+	}
+	ul {
+		margin-top: 4rem;
+		margin-left: -4rem;
+		@include breakpoint(tablet--landscape) {
+			margin-top: 10rem;
+			margin-left: 0;
+		}
+		@include breakpoint(mobile) {
+			margin-top: 6rem;
+		}
+		li {
+			float: left;
+			width: 16.6667%;
+			height: 6.5rem;
+			padding-right: 0;
+			text-align: center;
+
+			@include breakpoint(desktop--small) {
+				margin-bottom: 3rem;
+				width: 33.33%;
+				height: 16rem;
+			}
+			@include breakpoint(mobile) {
+				width: 50%;
+				height: 9.5rem;
+				margin-bottom: 6rem;
+			}
+			
+			&:nth-child(2n+1) {
+				
+			}
+			&:nth-child(3n) {
+				// @include breakpoint(tablet--landscape) {
+				// 	text-align: right;
+				// }
+			}
+			img {
+				height: 100%;
+				@include breakpoint(tablet--landscape) {
+					//width: 100%;
+				    max-width: 22rem;
+				}
+				@include breakpoint(mobile) {
+					//width: 100%;
+				    max-width: 24rem;
+				}
+			}
+		}
+	}
+}
+#work-title {
+	.scroll-down {
+		@include breakpoint(tablet--landscape) {
+			display: none;
+		}
+	}
+}
+
+//--- Load more
+.work-bottom {
+	@extend %clearfix;
+
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+.load-more-wrapper {
+	font-size: 20px;
+	font-family: $baseFont-med;
+	
+	text-align: center;
+	a.load-more {
+		display: inline-block;
+		margin: 8rem 0;
+		color: $c-black;
+	}
+	@include breakpoint(mobile) {
+		font-size: 18px;
+	}
+}
+
+//-- 404 page
+
+.error-page {
+	.container {
+		padding: 20rem 0 30rem;
+		@include breakpoint(tablet--landscape) {
+			width: 100%;
+			margin: 0;
+			padding: 20rem 4rem 30rem;
+		}
+		@include breakpoint(mobile) {
+			padding: 15rem 4rem 25rem;
+		}
+		h1, p {
+			text-align: left;
+		}
+		h1 {
+			margin-bottom: 3rem;
+			font-family: $styledFont-bold;
+			font-size: 56px;
+			line-height: 1.2;
+			z-index: 4;
+			@include breakpoint(desktop-fit) {
+				font-size: 46px;
+			}	
+			@include breakpoint(mobile) {
+				font-size: 5.5rem;
+			}
+		}
+		p {
+			font-size: 20px;
+			line-height: 1.6;
+			@include breakpoint(desktop-fit) {
+				font-size: 18px;
+			}
+			@include breakpoint(mobile) {
+				font-size: 3rem;
+			}
+		}
+	}
+}
+

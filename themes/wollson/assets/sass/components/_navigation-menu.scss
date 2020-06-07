@@ -1,0 +1,205 @@
+//-------------------------
+//----------- NAV MENU
+//-------------------------
+
+.menu {
+	background-color: #fff;
+	.menu-wrapper {
+		//position: relative;
+	}
+	position: absolute;
+	//display: none;
+	transform: translateX(100%);
+	visibility: hidden;
+	top: 0;
+	right: 0;
+	width: 580px;
+	min-height: 100vh;
+	padding: 14rem 9rem 86px;
+	background-color: $c-white;
+	z-index: 5;
+	transition: all 0.4s ease-in-out 0.8s;
+	@include breakpoint(mobile) {
+		width: 100%;
+		padding: 13rem 4rem 8.6rem;
+	}
+	.overlay {
+		display: none;
+	}
+	&.open {
+		position: fixed;
+		transform: translateX(0%);
+		visibility: visible;
+		transition: all 0.4s ease-in-out;
+		@include breakpoint(mobile) {
+			height: 100%;
+		}
+		.overlay {
+			display: block;
+			position: absolute;
+			top: 0;
+			width: 100vw;
+			height: 100vh;
+			right: 580px;
+			z-index: 666;
+			@include breakpoint(mobile) {
+				display: none;
+			}
+		}
+		.nav {
+			li {
+				transform: translateY(0);
+				opacity: 1;
+				visibility: visible;
+
+			}
+		}
+		.menu__bottom {
+			transform: translateY(0px);
+			opacity: 1;
+			visibility: visible;
+		}
+		.menu-decor-line {
+			transform: translateY(0);
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+	&__bottom {
+		position: absolute;
+		bottom: 86px;
+		transform: translateY(30px);
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.3s ease-in-out 0.7s;
+		@include breakpoint(mobile) {
+			//position: static;
+			bottom: 68px;
+		}
+	}
+	.menu-wrapper {
+		@include breakpoint(mobile) {
+			height: 100%;
+			overflow-y: auto;
+		}
+	}
+	.nav {
+		margin-bottom: 23rem;
+		li {
+			margin-bottom: 1rem;
+			font-size: 34px;
+			line-height: 2;
+			transform: translateY(30px);
+			opacity: 0;
+			visibility: hidden;
+			@include breakpoint(mobile) {
+				font-size: 4.8rem;
+				line-height: 1.8;
+			}
+			a {
+				color: $c-black;
+			}
+			&:first-child {
+				transition: all 0.3s ease-in-out 0.2s;
+			}
+			&:nth-child(2) {
+				transition: all 0.3s ease-in-out 0.3s;
+			}
+			&:nth-child(3) {
+				transition: all 0.3s ease-in-out 0.4s;
+			}
+			&:nth-child(4) {
+				transition: all 0.3s ease-in-out 0.5s;
+			}
+			&:nth-child(5) {
+				transition: all 0.3s ease-in-out 0.6s;
+			}
+		}
+		li.menu-mail {
+			position: relative;
+			float: left;
+			margin-top: 6rem;
+			font-family: $baseFont-med;
+			font-size: 20px;
+			@include breakpoint(mobile) {
+				margin-top: 3rem;
+				font-size: 3rem;
+			}
+			&:after {
+				display: block;
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 2px;
+				background-color: $c-black;
+				bottom: -0.2rem;
+				left: 0;
+			}
+		}
+	}
+	.menu-note {
+		margin-bottom: 40px;
+		width: 230px;
+		font-family: $styledFont-bold;
+		font-size: 21px;
+		line-height: 1.3;
+		@include breakpoint(mobile) {
+			margin-bottom: 8.5rem;
+			font-size: 3.4rem;
+			width: 70%;
+		}
+	}
+	.menu-follow {
+		@include absolute(center-horizontal);
+		display: inline-block;
+		width: 70px;
+		left: 81%;
+		bottom: 20px;
+		font-family: $baseFont-med;
+		font-size: 14px;
+		color: $c-black;
+		transform: rotate(90deg) translateX(-50%);
+		transform-origin: 0% 0%;
+		@include breakpoint(mobile) {
+			// right: -4rem;
+			// font-size: 2.2rem;
+			// bottom: 4rem;
+		}
+	}
+	.menu-decor-line {
+		position: absolute;
+		//height: 78.5%;
+		top: 14rem;
+		bottom: 86px;
+		right: 8rem;
+		width: 30px;
+		transform: translateY(-50px);
+		transition: all 0.3s ease-in-out 0.3s;
+		opacity: 0;
+		visibility: hidden;
+		@include breakpoint(tablet--landscape) {
+			right: 4rem;
+		}
+		@include breakpoint(mobile) {
+			bottom: 66px;
+			//height: 77.5%;
+		}
+		&:after {
+			content: "";
+			display: block;
+			@include absolute(center-horizontal);
+			width: 2px;
+			height: 86%;
+			background-color: $c-black;
+			@include breakpoint(mobile) {
+				height: 80%;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 767px) and (orientation: landscape) {
+	.menu.open {
+		height: auto;
+	}
+}

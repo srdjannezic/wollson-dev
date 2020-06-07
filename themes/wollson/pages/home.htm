@@ -1,0 +1,31 @@
+title = "Home"
+url = "/"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[widget]
+regionFilter = 1
+
+[projects]
+FeaturedFilter = 1
+
+[widget widget2]
+regionFilter = 3
+==
+<section id="hero-block" class="hero-intro" data-aos="fade-up" data-aos-duration="1000">
+    {% component 'widget' %}
+    <div class="scroll-down " data-aos="fade-down" data-aos-duration="1000" data-aos-delay="300">
+    	<span class="decor-line"></span>
+    	<i class="icon-down-arrow animated bounce"></i>
+    </div>
+</section>
+<section id="projects-block" class="promotion first">
+    {% component 'projects' %}
+</section>
+<section id="testimonial-block" class="motto" data-aos="fade-up" data-aos-duration="1000">
+	<div class="container">
+    	{% component 'widget2' %}
+    </div>
+</section>

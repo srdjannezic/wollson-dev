@@ -1,0 +1,10 @@
+name: Employees
+modelClass: Wollson\EmployeesManager\Models\Employee
+form: $/wollson/employeesmanager/models/employee/fields.yaml
+defaultRedirect: wollson/employeesmanager/employees
+create:
+    redirect: 'wollson/employeesmanager/employees/update/:id'
+    redirectClose: wollson/employeesmanager/employees
+update:
+    redirect: wollson/employeesmanager/employees
+    redirectClose: wollson/employeesmanager/employees

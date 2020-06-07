@@ -1,0 +1,15 @@
+fields:
+    name:
+        label: 'Client Name:'
+        span: auto
+        type: text
+    description:
+        label: 'Client Description:'
+        size: ''
+        span: full
+        type: richeditor
+    image:
+        label: Image
+        mode: file
+        span: auto
+        type: mediafinder

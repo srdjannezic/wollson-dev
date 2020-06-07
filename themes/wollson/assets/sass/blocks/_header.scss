@@ -1,0 +1,27 @@
+//-------------------------
+//----------- HEADER
+//-------------------------
+
+.header {
+	position: relative;
+	padding: 40px 8rem;
+	height: auto;
+	@extend %clearfix;
+	@include breakpoint(tablet--landscape) {
+		padding: 3rem 4rem;
+	}
+	&__logo {
+		float: left;
+		width: 118px;
+		height: 23px;
+		@include breakpoint(mobile) {
+			position: relative;
+			width: 16rem;
+			height: 3.2rem;
+			z-index: 55;
+		}
+		img {
+			width: 100%;
+		}
+	}
+}

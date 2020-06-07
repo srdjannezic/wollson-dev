@@ -1,0 +1,18 @@
+fields:
+    first_name:
+        label: 'First Name'
+        span: auto
+        type: text
+    last_name:
+        label: 'Last Name'
+        span: auto
+        type: text
+    image:
+        label: Image
+        mode: file
+        span: auto
+        type: mediafinder
+    profession:
+        label: Profession
+        span: right
+        type: text

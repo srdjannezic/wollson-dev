@@ -1,0 +1,71 @@
+description = "Default layout"
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>wollson - Brand agency {{ this.page.title }}</title>
+        <meta name="description" content="{{ this.page.meta_description }}">
+        <meta name="title" content="{{ this.page.meta_title }}">
+        <meta name="author" content="OctoberCMS">
+        <meta name="theme-color" content="#000000">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="generator" content="OctoberCMS">
+        <meta name="description" content="We help you define brand strategies, create powerful brand identities and apply them through each touchpoint of the brand’s everyday life.">
+        <meta property="og:image" content="http://wollson.rs/wp-content/uploads/2018/07/W-1024x1024.jpg?1">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="1024">
+        <meta property="og:image:height" content="1024">
+        <link rel="icon" href="{{ 'assets/images/wollson_favicon_16px.ico?1'|theme }}" sizes="16x16">
+        <link rel="icon" href="{{ 'assets/images/wollson_favicon_32px.ico?1'|theme }}" sizes="32x32">
+        <link rel="icon" href="{{ 'assets/images/wollson_favicon_196px.ico?1'|theme }}" sizes="196x196">
+        <link rel="alternate" hreflang="en" href="http://wollson.co.uk">
+        <link href="{{ 'assets/css/vendor.css'|theme }}" rel="stylesheet">
+        <link href="{{ 'assets/css/theme.css'|theme }}" rel="stylesheet">
+        <link href="{{ 'assets/css/style.css?=v1.677'|theme }}" rel="stylesheet">
+        <link rel="canonical" href="http://wollson.co.uk/">
+        <meta property="og:locale" content="en_US">
+        <meta property="og:type" content="website"><meta property="og:title" content="wollson - Brand agency / London, Rome, Barcelona, Belgrade"><meta property="og:description" content="We help you define brand strategies, create powerful brand identities and apply them through each touchpoint of the brand’s everyday life.">
+        <meta property="og:url" content="http://wollson.co.uk/">
+        <meta property="og:site_name" content="wollson brand agency">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:description" content="We help you define brand strategies, create powerful brand identities and apply them through each touchpoint of the brand’s everyday life.">
+        <meta name="twitter:title" content="wollson - Brand agency / London, Rome, Barcelona, Belgrade">
+        {% styles %}
+    </head>
+    <body>
+        <div class="siteWrapper">
+            <!-- Header -->
+            <header id="layout-header" class="header">
+                {% partial 'site/header' %}
+            </header>
+
+            <!-- Content -->
+            <main id="layout-content">
+                {% page %}
+            </main>
+            <span class="scroll-top">
+                <i class="icon-up-arrow"></i>
+            </span>
+            <!-- Footer -->
+            <footer id="layout-footer">
+                {% partial 'site/footer' %}
+            </footer>
+            
+            <!-- Scripts -->
+            <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
+            <script src="{{ 'assets/vendor/bootstrap.js'|theme }}"></script>
+            <script src="{{ 'assets/javascript/app.js'|theme }}"></script>
+            <script src="{{ 'assets/javascript/aos.js'|theme }}"></script>
+            <script src="{{ 'assets/javascript/main.js?=v1.12'|theme }}"></script>
+            <script>
+                AOS.init({
+                     once: true
+                });
+            </script>
+            {% framework extras %}
+            {% scripts %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+{% set page_sections = __SELF__.pages %}
+
+
+{% for section in page_sections %}
+	<div class="generalpages-main"> 
+		{% for row in content %}
+		{% set attribute = row.animation_type %}
+			<div class="{{ row.section_type }}" data-aos="{{ attribute }}" data-aos-duration="1000">
+				{{ row.section_content|raw }}
+			</div>
+		{% endfor %}
+	</div>
+{% endfor %} 

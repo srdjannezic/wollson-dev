@@ -1,0 +1,83 @@
+//-------------------------
+//---------------TYPOGRAPHY
+//-------------------------
+
+//------FONT-FACE
+
+@include fontFace(Gordita-Regular, gordita/Gordita-Regular,  null, null, otf);
+@include fontFace(Gordita-Bold, gordita/Gordita-Bold,  null, null, otf);
+@include fontFace(Gordita-Medium, gordita/Gordita-Medium,  null, null, otf);
+
+@include fontFace(NoeDisplay-Regular, noe-display/NoeDisplay-Regular,  null, null, ttf);
+@include fontFace(NoeDisplay-Bold, noe-display/NoeDisplay-Bold,  null, null, ttf);
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon/icomoon.eot?y794kq');
+  src:  url('../fonts/icomoon/icomoon.eot?y794kq#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon/icomoon.ttf?y794kq') format('truetype'),
+    url('../fonts/icomoon/icomoon.woff?y794kq') format('woff'),
+    url('../fonts/icomoon/icomoon.svg?y794kq#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-next:before {
+  content: "\e902";
+}
+.icon-prev:before {
+  content: "\e903";
+}
+.icon-down-arrow:before {
+  content: "\e900";
+}
+.icon-up-arrow:before {
+  content: "\e901";
+}
+
+
+//------FONT-SIZE
+
+body {
+    //font-size: 0!important; 
+}
+
+$baseFontSize: 10px; // DO NOT CHANGE THIS
+
+html {
+    font-size: $baseFontSize;
+    //change this part
+    @include breakpoint (desktop--Large) {
+        font-size: 0.5208333333333333vw;  // > 1200
+    }
+
+    // @include breakpoint (desktop-fit) { // < 1600
+    //     font-size: 0.625vw; 
+    // }
+    @include breakpoint (tablet--landscape) {
+        font-size: 0.9765625vw;//10px - 768px
+    }
+    @include breakpoint (mobile) {//10px - 640px
+        font-size: 1.5625vw;
+    }
+    // @include breakpoint (mobile--s) {//10px - 540px
+    //     font-size: 2.083333333333333vw;
+    // }
+}
+
+

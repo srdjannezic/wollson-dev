@@ -1,0 +1,295 @@
+//-------------------------
+//----------- SINGLE PAGE
+//-------------------------
+
+.single-intro {
+	@extend %clearfix;
+	overflow: hidden;
+	@include breakpoint(tablet) {
+		padding-bottom: 10rem;
+	}
+	.scroll-down {
+		@include breakpoint(desktop-fit) {
+			display: none;
+		}
+	}
+}
+
+.single-feuatured {
+	width: 100%;
+	height: 80rem;
+	@include breakpoint(tablet--landscape) {
+		height: 60rem;
+	}
+	.video-wrapper,
+	.image-wrapper {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		@include breakpoint(tablet--landscape) {
+			height: 60rem;
+			overflow: hidden;
+			video,
+			img {
+				@include absolute(center);
+				@include breakpoint(tablet--landscape) {
+					width: auto;
+					height: 100%;
+				}
+			}
+		}
+	}
+}
+
+.single-content {
+	width: 57%;
+	margin: 0 auto;
+	margin-left: 22%;
+	padding: 10rem 20rem 18rem 0;
+	@include breakpoint(tablet--landscape) {
+		width: 100%;
+		margin: 0;
+		padding: 10rem 4rem 10rem;
+	}
+	h4 {
+		font-size: 36px;
+		line-height: 1.6;
+		margin-bottom: 2rem;
+		@include breakpoint(desktop-fit) {
+			font-size: 28px;
+		}
+		@include breakpoint(mobile) {
+			font-size: 3.6rem;
+		}
+	}
+	p {
+		margin-bottom: 2rem;
+		font-size: 20px;
+		line-height: 1.8;
+		@include breakpoint(desktop-fit) {
+			font-size: 18px;
+		}
+		@include breakpoint(mobile) {
+			font-size: 3rem;
+		}
+	}
+}
+.single-gallery {
+	@extend %clearfix;
+	@include breakpoint(tablet--landscape) {
+		padding: 0 4rem;
+	}
+	.left,
+	.right {
+		width: 50%;
+		
+		@include breakpoint(tablet--landscape) {
+			width: 100%;
+		}
+		.image-wrapper,
+		.video-wrapper {
+			height: 76rem;
+			overflow: hidden;
+			position: relative;
+			img, 
+			video{
+				@include absolute(center);
+
+			}
+			@include breakpoint(tablet--landscape) {
+				width: 100%;
+				height: 56rem;
+				margin-bottom: 3rem;
+			}
+			@include breakpoint(mobile) {
+				height: 50rem;
+			}
+		}
+	}
+	.left {
+		float: left;
+		@include breakpoint(tablet--landscape) {
+			float: none;
+		}
+	}
+	.right {
+		float: right;
+		@include breakpoint(tablet--landscape) {
+			float: none;
+		}
+	}
+	.small {
+		border: 10rem solid $c-white;
+		overflow: hidden;
+		.image-wrapper,
+		.video-wrapper {
+			height: 56rem;
+			@include breakpoint(mobile) {
+				height: 50rem;
+			}
+		} 
+		@include breakpoint(tablet--landscape) {
+			border: none;
+		}
+	}
+	.big.full {
+		width: 100%;
+		border-right: 24rem solid $c-white;
+		border-left: 24rem solid $c-white;
+		border-top: none;
+		border-bottom: none;
+		overflow: hidden;
+		@include breakpoint(tablet--landscape) {
+			border: none;
+		}
+		.image-wrapper,
+		.video-wrapper {
+			position: relative;
+			width: 100%;
+			height: 108rem;
+			overflow: hidden;
+			@include breakpoint(tablet--landscape) {
+				height: 50rem;
+				width: 100%;
+				margin-bottom: 3rem;
+			}
+		}
+		&:nth-of-type(3) {
+			margin-bottom: 0;
+		}
+	}
+	.video-wrapper,
+	.image-wrapper {
+		height: 100%;
+		video,
+		img {
+			width: 100%;
+			height: auto;
+			@include breakpoint(tablet--landscape) {
+				width: 100%;
+				height: auto;
+			}
+			@include breakpoint(mobile) {
+				height: 100%;
+				width: auto;
+				margin-left: -0%;
+			}
+		}
+	}
+	.big {
+		margin-bottom: 10rem;
+		@include breakpoint(tablet--landscape) {
+			margin-bottom: 0;
+		}
+	}
+	.text-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 56rem;
+		@include breakpoint(tablet--landscape) {
+			height: auto;
+			padding: 10rem 0;
+		}
+		p {
+			font-size: 24px;
+			line-height: 1.6;
+			@include breakpoint(desktop-fit) {
+				font-size: 20px;
+			}
+			@include breakpoint(mobile) {
+				font-size: 3rem;
+			}
+		}
+		blockquote {
+			position: relative;
+			margin-left: 30%;
+			@include breakpoint(tablet--landscape) {
+				margin-left: 0;
+				padding-left: 10rem;
+				padding-top: 8rem;
+			}
+			&:after {
+				display: block;
+				position: absolute;
+				top: 1rem;
+				left: -25rem;
+				content: "";
+				width: 19rem;
+				height: 2px;
+				background-color: $c-black;
+				@include breakpoint(tablet--landscape) {
+					top: 8rem;
+					left: 0;
+				}
+			}
+			strong {
+				display: block;
+				margin-top: 4rem;
+				margin-bottom: 1.6rem;
+				font-family: $baseFont-med;
+			}
+		}
+	}
+}
+
+//-- Prev next arrows
+
+.single-nav {
+	@extend %clearfix;
+	padding: 8rem 20rem;
+	@include breakpoint(tablet--landscape) {
+		padding: 8rem 4rem;
+	}
+	.prev {
+		float: left;
+		i {
+			margin-right: 4rem;
+		}
+	}
+	.next {
+		float: right;
+		i {
+			margin-left: 4rem;
+		}
+	}
+	.icon-next {
+		float: right;
+		&:before {
+			@include breakpoint(mobile){
+				float: right;
+			}
+		}
+		@include breakpoint(mobile) {
+			float: none;
+		}
+	}
+	.page-link {
+		width: auto;
+		display: block;
+		font-family: $baseFont-med;
+		font-size: 20px;
+		color: $c-black;
+		@include breakpoint(tablet--landscape) {
+			font-size: 18px;
+		}
+		@include breakpoint(mobile) {
+			font-size: 2rem;
+		}
+		i {
+			font-size: 14px;
+    		line-height: 1.6;
+			@include breakpoint(mobile) {
+				display: block;
+			}
+		}
+	}
+	.sr-only {
+		@include breakpoint(mobile) {
+			display: block;
+			float: right;
+			margin-top: 2rem;
+		}
+	}
+}

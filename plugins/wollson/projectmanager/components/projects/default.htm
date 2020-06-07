@@ -1,0 +1,17 @@
+<form class="filterProjects">
+	<div class="project-list">
+	    {% partial 'projects/projects' %}
+	</div>
+    {% if this.page.id == 'work' %}
+    <div class="row work-bottom">
+        <div aria-label="pagination">
+            <div class="load-more-wrapper" data-last="{{ projects.lastPage }}">
+                <!--Load more-->
+                    <a class="load-more" href="?page={{currentPage+1}}" aria-label="Next">Load More</a>
+                    <div class="blog-loader hide"><img src="{{ url('/themes/wollson/assets/javascript/spinner.gif') }}" width="70"/></div> 
+
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</form>

@@ -1,0 +1,11 @@
+plugin:
+    name: 'wollson.employeesmanager::lang.plugin.name'
+    description: 'wollson.employeesmanager::lang.plugin.description'
+    author: Wollson
+    icon: oc-icon-adjust
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Employees
+        url: /wollson/employeesmanager/employees
+        icon: icon-group

@@ -1,0 +1,15 @@
+fields:
+    name:
+        label: Name
+        span: auto
+        type: text
+    description:
+        label: Description
+        size: ''
+        span: full
+        type: richeditor
+    parent:
+        label: Parent
+        nameFrom: name
+        span: auto
+        type: relation

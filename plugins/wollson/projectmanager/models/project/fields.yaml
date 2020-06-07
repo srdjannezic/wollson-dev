@@ -1,0 +1,79 @@
+fields:
+    title:
+        label: Title
+        span: left
+        type: text
+    is_featured:
+        label: 'Is Featured?'
+        span: right
+        type: checkbox
+    subtitle:
+        label: Subtitle
+        size: ''
+        span: auto
+        type: richeditor
+    description:
+        label: Description
+        size: ''
+        span: left
+        type: textarea
+    featured_media:
+        label: 'Featured Media'
+        mode: file
+        span: left
+        type: mediafinder
+    feautured_side:
+        label: 'Featured Side'
+        options:
+            big: big
+            small: small
+        span: right
+        type: radio
+    featured_subtitle:
+        label: 'Featured Subtitle'
+        size: ''
+        span: left
+        type: richeditor
+    content:
+        label: Content
+        size: ''
+        span: full
+        type: richeditor
+    scopes:
+        label: Scopes
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        type: relation
+    gallery:
+        label: Gallery
+        prompt: 'Add new item'
+        span: full
+        type: repeater
+        form:
+            fields:
+                media:
+                    label: Media
+                    mode: file
+                    span: full
+                    type: mediafinder
+                position:
+                    label: Position
+                    options:
+                        left: left
+                        right: right
+                        full: full
+                    span: auto
+                    type: dropdown
+                size:
+                    label: Size
+                    options:
+                        big: big
+                        small: small
+                    span: left
+                    type: dropdown
+                gallery_content:
+                    label: 'Gallery Content'
+                    size: ''
+                    span: full
+                    type: richeditor

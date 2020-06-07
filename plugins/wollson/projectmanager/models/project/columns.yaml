@@ -1,0 +1,26 @@
+columns:
+    id:
+        label: id
+        type: number
+    title:
+        label: title
+        type: text
+    description:
+        label: description
+        type: text
+#    scope_id:
+#        label: scope_id
+#        type: number
+    created_at:
+        label: created_at
+        type: datetime
+    updated_at:
+        label: updated_at
+        type: datetime
+    scopes:
+        label: scopes
+        select: name
+        relation: scopes
+        type: text
+        searchable: true
+        sortable: true

@@ -1,0 +1,31 @@
+[widget letstalk]
+regionFilter = 4
+==
+
+{% set has_extrafooter = true %}
+
+{% if this.page.id == 'work-wollson' %}
+	{% set has_extrafooter = false %}
+{% endif %}
+
+{% if this.page.id == 'lets-talk' %}
+	{% set has_extrafooter = false %}
+{% endif %}
+
+<footer id="footer" class="footer" >
+	{% if has_extrafooter %}
+	<div class="footer__top" data-aos="fade-up" data-aos-duration="2000">
+		<div class="container">
+			{% component 'letstalk' %}
+		</div>
+	</div>
+	{% endif %}
+	<div class="footer__bottom" >
+		<ul class="social">
+			<li><a href="https://www.instagram.com/wollson" target="_blank">Instagram</a></li>
+			<li><a href="https://www.facebook.com/wollson-932046036835044" target="_blank">Facebook</a></li>
+			<li><a href="https://www.linkedin.com/company/wollson" target="_blank">Linkedin</a></li>
+		</ul>
+		<p class="muted credit">&copy; wollson {{ "now"|date("Y") }}. All rights reserved.</p>
+    </div>
+</footer>

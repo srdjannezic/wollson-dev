@@ -1,0 +1,11 @@
+name: Clients
+modelClass: Wollson\ClientsManager\Models\Clients
+form: $/wollson/clientsmanager/models/clients/fields.yaml
+defaultRedirect: wollson/clientsmanager/clients
+create:
+    redirect: 'wollson/clientsmanager/clients/update/:id'
+    redirectClose: wollson/clientsmanager/clients
+update:
+    redirect: wollson/clientsmanager/clients
+    redirectClose: wollson/clientsmanager/clients
+preview: {  }

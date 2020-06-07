@@ -1,0 +1,220 @@
+{% set tourobj = this.page.components['Tour'].tour.attributes %}
+
+<div class="book-popup book-pay">
+ <div class="preloader-paypal">
+    <img src="/themes/note/assets/images/preload-spin.svg" alt="preloader">
+</div>
+<header class="book-popup__header">
+    <h2>Book this tour</h2>
+    <button class="book-close">&#10005;</button>
+</header>
+
+
+{{ form_ajax(__SELF__ ~ '::onBook',{ class: 'form-book'}) }}
+    <div class="step-1 step">
+        <div class="step-wrapper">
+            
+            <h3><span>Step 1</span> Choose tour date</h3>
+
+            {% if this.page.components['Tour'].tour.attributes.bokun_activity_id is not null %}
+            <input type="hidden" class="tour-id" name="tourid" id="tourid" value="{{ this.page.components['Tour'].tour.attributes.bokun_activity_id }}">
+            {% endif %}
+
+            {% if this.page.components['Tour'].tour.attributes.bokun_rate_id is not null %}
+            <input type="hidden" class="rate-id" name="rateid" id="rateid" value="{{ this.page.components['Tour'].tour.attributes.bokun_rate_id }}">
+            {% endif %}
+
+            {% if this.page.components['Tour'].tour.attributes.bokun_start_id is not null %}
+            <input type="hidden" class="start-id" name="startid" id="startid" value="{{ this.page.components['Tour'].tour.attributes.bokun_start_id }}">
+            {% endif %}
+
+            {% if this.page.components['Tour'].tour.attributes.name is not null %}
+            <input type="hidden" class="tour-name" id="tourname" name="Tour" value="{{ this.page.components['Tour'].tour.attributes.name }}">
+            {% endif %}
+
+            {% if this.page.components['Tour'].tour.attributes.price is not null %}
+            <input type="hidden" class="tour-price" id="tourprice" name="Price" value="{{ this.page.components['Tour'].tour.attributes.price }}">
+            {% endif %}
+
+            <input type="hidden" name="rates" class="rates" id="rates" value="{{ tourobj.bokun_rates }}">
+
+            <div class="input-wrapper input-date-wrapper pick-date">
+                <input type="text" id="when" readonly="true" name="date" placeholder="Choose date" />
+                <div id="note-datepicker-1" class="note-datepicker"></div>
+              <!--   <i class="icon-calendar"></i> -->
+            </div> 
+
+            <div class="steps-nav">
+               <!--  <span class="book-prev" data-pr="2">Go Back</span> -->
+                <span class="book-next" data-nx="2">Next</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="step-2 step">
+        <div class="step-wrapper">
+            <h3><span>Step 2</span> Edit tour details</h3>
+
+            <div class="input-wrapper select-box">
+                {% set now = 'today'|date() %}
+                {% set from = tourobj.active_from|date() %}
+                {% set to = tourobj.active_to|date() %}
+
+                <select name="group_type" id="group_type" class="required" {% if tourobj.active_from %} data-from="{{ from|date('m-d') }}" data-dateto="{{ to|date('m-d') }}" 
+                data-today={{ 'now'|date('m-d') }} {% endif %}>
+                    <option value="">Tour type (Private / Public)?</option>
+                    <option value="">---</option>
+                    {% for price in bokun_pricing_id %}
+                        {% if tourobj.active_from and tourobj.active_to %}
+                            {% if now|date('m-d') >= from|date('m-d') and now|date('m-d') <= to|date('m-d') %}
+                                <option value="{{ price.title }}" data-id="{{ price.pricingCategoryId }}">{{ price.title }}</option>
+                            {% else %}
+                                {% if price.title == 'Private' %}
+                                    <option value="{{ price.title }}" data-id="{{ price.pricingCategoryId }}">{{ price.title }}</option>
+                                {% endif %}
+                            {% endif %}
+                        {% else %}
+                            <option value="{{ price.title }}" data-id="{{ price.pricingCategoryId }}">{{ price.title }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <span class="error-message">This field is required</span>
+            </div> 
+
+            
+            <div class="input-wrapper select-box">
+
+                <select name="num_people" id="num_people" class="required">
+                    {% for i in tourobj.min_people..30 %}
+                        {% set has_range = false %}
+                        {% set rate_id = '' %}
+                        {% for rates in bokun_rates %}
+                            {% if '[' in rates.title %}
+                                {% set rates_title = rates.title|replace({'[':'',']':''}) %}
+                                {% set range = rates_title|split('-') %}
+
+                                {% if i >= range[0] and i <= range[1] %}
+                                    {% set has_range = true %}
+                                    <option value="{{ i }}" data-rateid="{{ rates.rateId }}">{% if i == 1 %} Number of people: {% endif %}{{ i }}</option>
+                                {% endif %}
+                            {% else %}
+                                {% set rate_id = rates.rateId %}
+                            {% endif %}
+                        {% endfor %}
+                        {% if not has_range %}
+                            <option value="{{ i }}" data-rateid="{{ rate_id }}">{% if i == 1 %} Number of people: {% endif %}{{ i }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <span class="error-message">This field is required</span>
+            </div> 
+            <div class="input-wrapper select-box">
+                {% set hide_private = '' %}
+                {% set hide_public = 'hide' %}
+
+                {% if bokun_pricing_id[0].title == 'Public' and this.page.components['Tour'].tour.attributes.is_not_available == false %}
+                    {% set hide_private = 'hide' %}
+                    {% set hide_public = '' %}
+                {% endif %}
+                <select name="rent_date" id="rent_date" class="required rent-private {{ hide_private }}">
+                    <option value="">Prefered starting time</option>
+                    {% for time in starts.private %}
+                        <option value="{{ time.hour }}:{{ time.minute }}" data-id="{{ time.id }}">{{ time.hour }}:{{ time.minute }}</option>
+                    {% endfor %}
+                </select>
+                <select name="rent_date" id="rent_date" class="required rent-public {{ hide_public }}">
+                    <option value="">Prefered starting time</option>
+                    {% for time in starts.public %}
+                        <option value="{{ time.hour }}:{{ time.minute }}" data-id="{{ time.id }}">{{ time.hour }}:{{ time.minute }}</option>
+                    {% endfor %}
+                </select>
+                <span class="error-message">This field is required</span>
+            </div>
+            {% if tourobj.pricing_text %}
+            <!--<div class="pricing-message">{{ tourobj.pricing_text|raw }}</div>-->
+            {% endif %}
+            <div class="steps-nav">
+                <span class="book-prev book-prev-s2" data-pr="2">Go Back</span>
+                <span class="book-next" data-nx="3">Next</span>
+            </div>
+        </div> 
+    </div>
+
+    <div class="step-3 step">
+        <div class="step-wrapper">
+            <h3><span>Step 3</span> Edit tour details</h3>
+            <div class="input-wrapper">
+                <input type="text" id="name" name="name" placeholder="* Name" class="required">
+            </div> 
+
+            <div class="input-wrapper">
+                <input type="text" id="phone" name="phone" placeholder="* Telephone Number (e.g. +381xxxxxxx)" class="required">
+            </div>    
+
+            <div class="input-wrapper">
+                <input type="text" id="email" name="email" placeholder="* E-mail" class="required">
+            </div>       
+
+           <!--  <div class="book-column book-full">
+                <div class="input-wrapper select-box">
+                    <select name="hear_from">
+                        <option value="">How did you hear about us?</option>
+                        <option value="">---</option><option value="TripAdvisor">TripAdvisor</option><option value="Google Maps">Google Maps</option><option value="Internet">Internet</option><option value="Social Media">Social Media</option><option value="Friend recommendation">Friend recommendation</option><option value="Hotel/Hostel recommendation">Hotel/Hostel recommendation</option><option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="input-wrapper">
+                    <input type="text" id="other" name="other" placeholder="If other, please specify">
+                </div>    
+            </div> -->
+       
+
+            <div class="input-wrapper">
+                <input type="textarea" id="requests" name="requests" placeholder="Your remarks / request">
+            </div> 
+
+            <div class="check-wrapper">
+                <input type="radio" name="payment" class="styles required-check" value="p-later" id="p-later" data-item="p-later"><label for="p-later">pay later</label>
+                <span class="checkmark">&nbsp;</span>
+            </div>  
+            <div class="check-wrapper">
+                <input type="radio" name="payment" class="styles required-check" value="p-now" id="p-now" data-item="p-now"><label for="p-now">pay now</label>
+                <span class="checkmark">&nbsp;</span>
+            </div>  
+
+            <div id="{{ __SELF__ }}_forms_flash"></div>
+
+           <!--  <div class="btn-wrapper btn-green">
+                <span><input type="submit" class="book-start"></span>
+            </div> -->
+        
+            <div class="steps-nav">
+                <span class="book-prev" data-pr="3">Go Back</span>
+                <span class="book-next book-start" data-payment="">Finish</span>
+               <!--  <span class="book-next book-start" data-payment="paypal">Pay Now</span> -->
+            </div>
+        </div>
+    </div>
+
+{{ form_close() }}
+
+<footer class="book-popup__footer">
+    <div class="cont">
+    {% set total_price = tourobj.price %}
+    {% for rates in bokun_rates %}
+        {% if '[' in rates.title %}
+            {% set rates_title = rates.title|replace({'[':'',']':''}) %}
+            {% set range = rates_title|split('-') %}
+
+            {% if range[1] == 1 %}
+                {% set total_price = rates.passengers[0].price.amount %}
+            {% endif %}
+        {% else %}
+            {% set rate_id = rates.rateId %}
+        {% endif %}
+    {% endfor %}
+    <span class="total">Total price: </span><span class="sum-price">{{ total_price + 0 }}&euro;</span>
+    </div>
+</footer>
+</div>

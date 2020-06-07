@@ -1,0 +1,136 @@
+//-------------------------
+//----------- BUTTONS
+//-------------------------
+
+//-- Menu Button
+
+#menu-toggle {
+	@include absolute(center-vertical);
+	right: 8rem;
+	width: 30px;
+	height: 30px;
+	cursor:pointer;
+	background:rgba(255,255,255,.4);
+	border-radius:5px;
+	z-index: 555;
+	@include breakpoint(tablet--landscape) {
+		right: 4rem;
+	}
+	&:hover {
+		background:rgba(255,255,255,.8);
+	}
+	#hamburger {
+		position:absolute;
+		height:100%;
+		width:100%;
+		span {
+			display: block;
+			width: 30px;
+			height: 2px;
+			position:relative;
+			top: 0px;
+			left: 0px;
+			margin: 9px 0;
+			background-color: $c-black;
+			transition:.25s ease-in-out;
+			&:nth-child(1){
+				transition-delay:.3s;
+			}
+			&:nth-child(2){
+				transition-delay:.425s;
+			}
+			&:nth-child(3){
+				transition-delay:.55s;
+			}
+		}
+	}
+	#cross {
+		position:absolute;
+		height: 100%;
+		width: 100%;
+		transform:rotate(45deg);
+		span {
+			background-color: $c-black;
+			transition:.25s ease-in-out;
+			&:nth-child(1){
+				height:0%;
+				width: 2px;
+				position:absolute;
+				top: 0px;
+				left: 14px;
+				transition-delay: 0s;
+			}
+			&:nth-child(2){
+				width: 0%;
+				height: 2px;
+				position: absolute;
+				left: 0px;
+				top: 14px;
+				transition-delay:.25s;
+			}
+		}
+	}
+}
+
+#menu-toggle.open {
+	position: fixed;
+	top: 52px;
+	@include breakpoint(mobile) {
+		top: 4.6rem;
+	}
+	#hamburger {
+		span {
+			width:0%;
+			&:nth-child(1){
+				transition-delay:0s;
+			}
+			&:nth-child(2){
+				transition-delay:.125s;
+			}
+			&:nth-child(3){
+				transition-delay:.25s;
+			}
+		}
+	}
+	#cross {
+	span {
+		&:nth-child(1){
+			height: 100%;
+			transition-delay:.625s;
+		}
+	}
+	span {
+		&:nth-child(2){
+			width: 100%;
+			transition-delay:.375s;
+			}
+		}    
+	}
+}
+
+//-- Scroll to top
+
+.scroll-top {
+	position: fixed;
+	display: none;
+	bottom: 10rem;
+	width: 40px;
+	height: 40px;
+	border: 2px solid $c-black;
+	border-radius: 50%;
+	right: 8rem;
+	cursor: pointer;
+	z-index: 55;
+	background: rgba(255,255,255,0.3);
+	@include breakpoint(tablet--landscape) {
+		bottom: 4rem;
+		right: 4rem;
+	}
+	.icon-up-arrow {
+		@include absolute(center);
+		font-size: 18px;
+	}
+}
+
+
+

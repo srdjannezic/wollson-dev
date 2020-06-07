@@ -1,0 +1,41 @@
+//-------------------------
+//----------------VARIABLES
+//-------------------------
+
+//-----COLORS
+$c-black           : #000;
+$c-white           : #fff;
+$c-mainGrey        : #ebeef2;
+$c-fontGrey        : #717989;
+$c-red              : #eb4f6f;
+$c-blue            : #6593f5;
+
+
+
+//-----PATHS
+$localFontBase: "/wollson/themes/wollson/assets/fonts/";
+$imgBaseUrl   : "/images/";
+
+
+//------DIMENSIONS
+$baseFontSize: 10;
+$fullWidth: 100%;
+$fullHeight: 100%;
+
+//------FONT
+$fontDefault: Arial, Helvetica, Tahoma, sans-serif;
+$baseFont: 'Gordita-Regular', sans-serif;
+$baseFont-bold: 'Gordita-Bold', sans-serif;
+$baseFont-med: 'Gordita-Medium', sans-serif;
+
+$styledFont: 'NoeDisplay-Regular', sans-serif;
+$styledFont-bold: 'NoeDisplay-Bold', sans-serif;
+
+
+
+//------MEDIA QUERIES
+$desktop--Large  : 1700px;
+$desktop         : 1440px;
+$tablet          : 860px;
+$mobile			 : 767px;
+

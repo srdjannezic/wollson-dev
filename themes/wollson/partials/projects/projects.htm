@@ -1,0 +1,41 @@
+==
+{% set comp_projects = __SELF__.comp_projects %}
+
+{% for project in projects %}
+{% set side = project.feautured_side %}
+	<article class="promo-box {{ side }}" data-aos="fade-up" data-aos-duration="1000">
+		<a href="http://files.wollson.rs/wollson/project/{{ project.slug }}">
+			{% set feautured_url = 'storage/app/media' ~ project.front_media %}
+			{% if project.is_video %}
+				<div class="video-wrapper">
+					<video src="{{ url(feautured_url) }}" autoplay playsinline loop muted></video>
+				</div>
+			{% else %}
+				<div class="image-wrapper">
+					<img src="{{ url(feautured_url) }}">
+				</div>
+			{% endif %}
+			<div class="promo-info">
+				<h4 class="promo-title"> {{ project.title|raw }} </h4>
+				<h3 class="promo-subtitle"> {{ project.featured_subtitle|raw }} </h3>
+			</div>
+		</a>
+	</article>
+{% endfor %}
+
+{% if this.page.id == 'work' %}
+<div class="row work-bottom">
+    <div aria-label="pagination">
+        <div class="load-more-wrapper">
+            <!--Load more-->
+
+            {% if comp_projects.lastPage > currentPage %}
+                <a class="load-more" href="?page={{currentPage+1}}" aria-label="Next">Load More</a>
+                <div class="blog-loader hide"><img src="{{ url('/themes/wollson/assets/javascript/spinner.gif') }}" width="70"/></div> 
+
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endif %}

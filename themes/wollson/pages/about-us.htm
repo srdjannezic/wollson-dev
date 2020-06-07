@@ -1,0 +1,23 @@
+title = "About us"
+url = "/about-us"
+layout = "default"
+description = "We arm brands with the best tools<br/>
+to create a brand experience<br/>
+their customers will love."
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[page aboutpage]
+pageFilter = 1
+==
+<div id="about-title" class="hero-intro" data-aos="fade-up" data-aos-duration="1000">
+    <h1 data-aos="fade-up" data-aos-duration="1000">{{ this.page.description|raw }}</h1>
+   <div class="scroll-down">
+    	<span class="decor-line"></span>
+    	<i class="icon-down-arrow"></i>
+    </div>
+</div>
+<div class="about-main first">
+    {% component 'aboutpage' %}
+</div>
